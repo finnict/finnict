@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio - Slamet Fahru Ariffin | Graphic Designer</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet"> 
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/css/aos.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css"> 
+
+    <style>
+        
+        :root {
+            --primary-color: #C27D79; 
+            --accent-color: #9A5A57; 
+            
+            --secondary-color-teal: #79C2BE; 
+            --secondary-accent-teal: #5A9A96; 
+            
+            --bg-dark: #000000; 
+            --bg-light: #1A1A1A; 
+            --text-light: #E0E0E0; 
+            
+
+            --card-bg-opacity: rgba(255, 255, 255, 0.08); 
+            --card-border: rgba(255, 255, 255, 0.15); 
+            --shadow-heavy: rgba(0, 0, 0, 0.75); 
+        }
+        
+
+        body {
+            background-color: var(--bg-dark); 
+            color: var(--text-light);
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            color: var(--text-light);
+            font-family: 'Montserrat', sans-serif;
+            text-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
+        }
+        
+
+        .mesh-gradient {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--bg-dark) 0%, #201010 30%, var(--primary-color) 60%, var(--bg-dark) 100%);
+            background-size: 400% 400%; 
+            animation: gradientMove 25s ease infinite alternate;
+            z-index: -1;
+            opacity: 0.6;
+            filter: blur(80px); 
+        }
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 50% 100%; }
+        }
+
+        .glasmorph-card, .card, .skill-card, .project-card {
+            background: var(--card-bg-opacity);
+            border: 1px solid var(--card-border);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 25px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px var(--shadow-heavy);
+        }
+
+      
+        .hover-lift:hover {
+            transform: translateY(-8px); 
+            box-shadow: 0 15px 30px var(--shadow-heavy), 0 0 15px var(--primary-color); 
+            border-color: var(--accent-color);
+        }
+
+        /* Section Title */
+        .section-title {
+            font-size: clamp(2rem, 5vw, 3rem); 
+            font-weight: 700;
+            margin-bottom: 3rem;
+            text-align: center;
+            color: var(--primary-color); 
+            text-shadow: none;
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+            margin: 10px auto 0;
+            box-shadow: none;
+        }
+
+        /* Navbar */
+        .navbar {
+            background: rgba(0, 0, 0, 0.85) !important; 
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--card-border);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.5);
+        }
+        .nav-link:hover, .nav-link.active {
+            color: var(--primary-color) !important;
+            text-shadow: none;
+        }
+
+
+        .hero-section {
+            padding-top: 10rem;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+        .hero-title {
+            font-size: clamp(2.5rem, 8vw, 4.5rem); 
+            font-weight: 900;
+        }
+        .hero-profession {
+            color: var(--primary-color); 
+            font-weight: 600;
+            margin-bottom: 2rem;
+            font-family: 'Montserrat', sans-serif; 
+            font-size: clamp(1.2rem, 3vw, 1.8rem); 
+        }
+        
+        .rotating-skills-wrapper {
+            background: var(--bg-light); 
+            padding: 10px 20px;
+            border-radius: 50px;
+            width: fit-content;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--card-border);
+        }
+        .skills-icon {
+            color: var(--primary-color);
+            font-size: 1rem;
+        }
+        .rotating-text {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        .typing-cursor {
+            color: var(--primary-color);
+            display: inline-block; 
+            animation: blink 0.7s step-end infinite;
+        }
+        @keyframes blink {
+            from, to { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        /* Profile Image */
+        .profile-container {
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+        }
+        .profile-container:hover {
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.8), 0 0 15px var(--primary-color);
+        }
+
+        /* Skills Card Styling */
+        .skill-icon-container {
+            background: var(--primary-color);
+            color: var(--bg-dark);
+            box-shadow: 0 0 15px rgba(194, 125, 121, 0.6); 
+        }
+        .text-teal { color: var(--secondary-color-teal) !important; }
+        .icon-bg-teal {
+            background: var(--secondary-color-teal) !important;
+            box-shadow: 0 0 15px rgba(121, 194, 190, 0.6) !important; 
+        }
+        .skill-tech {
+            /* Primary Tech Tag */
+            color: var(--primary-color);
+            border: 1px solid rgba(194, 125, 121, 0.4); 
+            background: rgba(194, 125, 121, 0.1); 
+        }
+        .skill-tech-teal {
+            /* Secondary Tech Tag (Teal) */
+            color: var(--secondary-color-teal) !important;
+            border: 1px solid rgba(121, 194, 190, 0.4) !important;
+            background: rgba(121, 194, 190, 0.1) !important;
+        }
+        .experience-fill-teal {
+            background: linear-gradient(90deg, var(--secondary-accent-teal), var(--secondary-color-teal)) !important; 
+        }
+        
+        /* Custom Buttons */
+        .btn-primary-custom {
+            background: var(--primary-color) !important;
+            border: 1px solid var(--primary-color) !important;
+            color: var(--bg-dark) !important; 
+            font-weight: 700;
+        }
+        .btn-primary-custom:hover {
+            background: var(--accent-color) !important;
+            border-color: var(--accent-color) !important;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+            transform: translateY(-2px);
+        }
+        .btn-outline-primary-custom {
+            border: 1px solid var(--primary-color) !important;
+            color: var(--primary-color) !important;
+            background: transparent !important;
+            font-weight: 600;
+        }
+        .btn-outline-primary-custom:hover {
+            background: var(--primary-color) !important;
+            color: var(--bg-dark) !important;
+        }
+
+        /* Footer */
+        .footer-simple .text-muted {
+            color: rgba(255, 255, 255, 0.6) !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="mesh-gradient"></div>
+
+    <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="#home" data-aos="fade-right">SLAMET.FA <span class="text-primary">| PORTOFOLIO</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto" data-aos="fade-left">
+                    <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">Tentang</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="hero-section text-dark">
+        <div class="container">
+            <div class="row align-items-center flex-column-reverse flex-lg-row"> 
+                <div class="col-lg-7 hero-content" data-aos="fade-right">
+                    <p class="hero-subtitle text-light">Halo, Saya</p>
+                    <h1 class="hero-title">
+                        Slamet Fahru Ariffin
+                    </h1>
+                    <h2 class="hero-profession" id="hero-profession">Graphic Designer | Antusias & Penasaran</h2> 
+                    
+                    <div class="rotating-skills-wrapper d-flex align-items-center mb-4 mt-4">
+                        <h5 class="skill-intro mb-0 me-2 text-primary">Antusiasme Pada:</h5> 
+                        <div class="rotating-skills">
+                            <div class="skills-input-container d-flex align-items-center">
+                                <i class="fas fa-search skills-icon me-2"></i>
+                                <span class="rotating-text" id="rotating-text">Mempelajari Hal Baru</span> 
+                                <span class="typing-cursor">|</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="hero-description text-light">
+                        "Saya percaya bahwa setiap pengalaman, sekecil apa pun, bisa memberikan pelajaran dan membantu kita berkembang menjadi pribadi yang lebih baik."
+                    </p>
+                    
+                    
+                    <div class="social-links d-flex gap-3 mt-4" data-aos="fade-up" data-aos-delay="700">
+                        <a href="#" target="_blank" class="social-link" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="mailto:emailanda@example.com" class="social-link" title="Email"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-5 text-center mb-5 mb-lg-0" data-aos="fade-left">
+                    <div class="profile-container mx-auto">
+                        <div class="profile-image-container">
+                            <img src="WhatsApp Image 2025-10-24 at 12.22.50.jpeg" 
+                                alt="Slamet Fahru Ariffin - Profile Picture" 
+                                class="profile-image">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <hr class="container my-0 divider">
+
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Tentang Saya</h2>
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-10 text-center">
+                    <p class="about-intro text-light" data-aos="fade-up" data-aos-delay="100">
+                        Saya adalah pribadi yang antusias, penasaran, dan selalu bersemangat untuk belajar hal-hal baru setiap harinya.
+                    </p>
+                    <p class="about-intro mt-4 text-light" data-aos="fade-up" data-aos-delay="200">
+                        Saya memiliki ketertarikan besar pada dunia desain digital dan pengembangan web. Setiap proyek yang saya kerjakan selalu saya mulai dari rasa ingin tahu dan keinginan untuk menciptakan sesuatu yang menarik, fungsional, dan bermakna bagi pengguna.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr class="container my-0 divider">
+
+    <section id="skills" class="skills-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Keahlian & Minat</h2>
+            
+            <div class="row skills-row g-4">
+                
+                <div class="col-lg-6" data-aos="fade-right" data-aos-delay="100">
+                    <div class="skill-card hover-lift">
+                        <div class="skill-header">
+                            <div class="skill-icon-container">
+                                <i class="fas fa-palette"></i> 
+                            </div>
+                            <h4 class="text-light">Desain Grafis (Visual Branding)</h4> 
+                        </div>
+                        <p>Keahlian utama saya adalah Desain Grafis, mencakup branding, materi promosi digital, dan visual identity. Saya fokus pada desain yang estetis dan memiliki tujuan yang jelas.</p>
+                        <div class="skill-technologies">
+                            <span class="skill-tech">Photoshop</span>
+                            <span class="skill-tech">Illustrator</span>
+                            <span class="skill-tech">Figma</span>
+                        </div>
+                        <div class="skill-experience">
+                            <div class="experience-bar">
+                                <div class="experience-fill" style="width: 85%;"></div>
+                            </div>
+                            <span class="experience-text">Professional Grade</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6" data-aos="fade-left" data-aos-delay="200">
+                    <div class="skill-card hover-lift">
+                        <div class="skill-header">
+                            <div class="skill-icon-container icon-bg-teal">
+                                <i class="fas fa-gamepad"></i> 
+                            </div>
+                            <h4 class="text-light">Strategi & Pemecahan Masalah</h4> 
+                        </div>
+                        <p>Diasah dari hobi bermain game, saya memiliki kemampuan untuk berpikir strategis, memecahkan masalah kompleks, dan bekerja di bawah tekanan (tenggat waktu).</p>
+                        <div class="skill-technologies">
+                            <span class="skill-tech skill-tech-teal">Strategic Thinking</span>
+                            <span class="skill-tech skill-tech-teal">Logic</span>
+                            <span class="skill-tech skill-tech-teal">Focus</span>
+                        </div>
+                        <div class="skill-experience">
+                            <div class="experience-bar">
+                                <div class="experience-fill experience-fill-teal" style="width: 70%;"></div>
+                            </div>
+                            <span class="experience-text text-teal">Terus Berkembang</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <hr class="container my-0 divider">
+
+    <footer class="text-center py-4 mt-5 footer-simple">
+        <div class="container">
+            <p class="mb-1 text-light" data-aos="fade-up">
+                Slamet Fahru Ariffin.
+            </p>
+            <p class="mb-0 text-muted small" data-aos="fade-up" data-aos-delay="100">
+                &copy; <span id="currentYear"></span> Portofolio Desain Grafis. Built with <i class="fas fa-heart text-primary"></i> & Bootstrap.
+            </p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 900,
+            once: true,
+            easing: 'ease-in-out',
+        });
+        
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        const skills = ["Desain Grafis", "Mempelajari Hal Baru", "Mengeksplorasi Ide", "Pemecahan Masalah"];
+        let skillIndex = 0;
+        const rotatingTextElement = document.getElementById('rotating-text');
+
+        function typeSkill(text, i, cb) {
+            if (i < text.length) {
+                rotatingTextElement.innerHTML += text.charAt(i);
+                setTimeout(function() { typeSkill(text, i + 1, cb); }, 100);
+            } else if (cb) {
+                setTimeout(cb, 1800); 
+            }
+        }
+
+        function eraseSkill(cb) {
+            let text = rotatingTextElement.innerHTML;
+            if (text.length > 0) {
+                rotatingTextElement.innerHTML = text.substring(0, text.length - 1);
+                setTimeout(function() { eraseSkill(cb); }, 50);
+            } else if (cb) {
+                cb();
+            }
+        }
+
+        function rotateSkills() {
+            typeSkill(skills[skillIndex], 0, function() {
+                eraseSkill(function() {
+                    skillIndex = (skillIndex + 1) % skills.length;
+                    rotateSkills();
+                });
+            });
+        }
+
+        setTimeout(rotateSkills, 1000);
+    </script>
+</body>
+</html>
